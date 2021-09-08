@@ -5,5 +5,5 @@ def abs_v(x):
         return -x
     else:
         return x
-print(abs_v(-3))
-print(abs_v(3))
+print(abs_v(4))
+print(abs_v(-5))

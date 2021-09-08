@@ -15,3 +15,5 @@ for i in range(3):
 
 # 원 그리기
 t.circle(50)    #반지름이 50px
+
+t.mainloop()
