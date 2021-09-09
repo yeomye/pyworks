@@ -8,4 +8,8 @@ print('차량 1' + car1.model + '\t' + car1.color + '\t' + str(car1.cc))
 print('차량 2' + car2.model + '\t' + car2.color + '\t' + str(car2.cc))
 
 s1 = Student('콩쥐', 3)
+s2 = Student('팥쥐', 2)
+s1.learn()
 print(s1)
+print(s2)
+
