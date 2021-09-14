@@ -1,4 +1,5 @@
 # a모드는 input() 코드에서 필수로 사용
+# 연산은 문자열 포매팅 방식으로 가능하다
 f = open("c:/pyfile/number2.txt",'a')
 f.write('%d\n'%(100/2))
 f.write('%.2f\n'%7.34)
