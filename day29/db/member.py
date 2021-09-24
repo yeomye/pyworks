@@ -9,9 +9,10 @@ def create_table():
     sql="""
         CREATE TABLE member(
             memberId char(5) PRIMARY KEY,
-            passwd  char(8) NOT NULL,
-            name    TEXT NOT NULL,
-            age     INTEGER
+            passwd   char(8) NOT NULL,
+            name     TEXT NOT NULL,
+            age      INTEGER,
+            reg_date DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     """
 
@@ -24,7 +25,7 @@ def insert_member():
     conn=getconn()
     cur=conn.cursor()
     sql="INSERT INTO member(memberId, passwd, name, age) VALUES(?,?,?,?)"
-    cur.execute(sql, ('10002', 'a1234567', '팥쥐', 18 ))
+    cur.execute(sql, ('10003', 'c1234567', '상현', 28 ))
     conn.commit()
     conn.close()
 
@@ -38,6 +39,35 @@ def select_member():
         print(i)
     conn.close()
 
+def select_one():
+    conn=getconn()
+    cur=conn.cursor()
+    sql='SELECT memberId, passwd FROM member WHERE memberId = ?'
+    cur.execute(sql, ('10002',))
+    rs=cur.fetchone()
+    print(rs)
+    conn.commit()
+    conn.close()
+
+def update_member():
+    conn = getconn()
+    cur = conn.cursor()
+    sql = "UPDATE member SET age = ? WHERE memberId = ?"
+    cur.execute(sql, (37, '10001'))     # ? 순서대로 매핑
+    conn.commit()
+    conn.close()
+
+def delete_member():
+    conn = getconn()
+    cur = conn.cursor()
+    sql = 'DELETE FROM member WHERE memberId = ?'
+    cur.execute(sql, ('10002',))
+    conn.commit()
+    conn.close()
+
 #create_table()
-insert_member()
+#insert_member()
+#update_member()
+delete_member()
+#select_one()
 select_member()
